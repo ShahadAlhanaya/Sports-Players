@@ -133,9 +133,6 @@ class PlayersTableViewController: UITableViewController {
         }
         fetchPlayers()
     }
-    
-    
-
 }
 
 extension String  {

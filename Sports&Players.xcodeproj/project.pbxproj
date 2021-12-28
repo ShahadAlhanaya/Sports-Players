@@ -20,6 +20,7 @@
 		FC677B01277AE8E800A1AEB3 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC677B00277AE8E800A1AEB3 /* PlayersTableViewController.swift */; };
 		FC677B03277AE97300A1AEB3 /* SportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC677B02277AE97300A1AEB3 /* SportTableViewCell.swift */; };
 		FC677B05277B537B00A1AEB3 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC677B04277B537B00A1AEB3 /* PlayerTableViewCell.swift */; };
+		FC677B07277B580E00A1AEB3 /* SportImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC677B06277B580E00A1AEB3 /* SportImageDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		FC677B00277AE8E800A1AEB3 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		FC677B02277AE97300A1AEB3 /* SportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportTableViewCell.swift; sourceTree = "<group>"; };
 		FC677B04277B537B00A1AEB3 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		FC677B06277B580E00A1AEB3 /* SportImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportImageDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				FC677B00277AE8E800A1AEB3 /* PlayersTableViewController.swift */,
 				FC677B02277AE97300A1AEB3 /* SportTableViewCell.swift */,
 				FC677B04277B537B00A1AEB3 /* PlayerTableViewCell.swift */,
+				FC677B06277B580E00A1AEB3 /* SportImageDelegate.swift */,
 			);
 			path = "Sports&Players";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC677B05277B537B00A1AEB3 /* PlayerTableViewCell.swift in Sources */,
+				FC677B07277B580E00A1AEB3 /* SportImageDelegate.swift in Sources */,
 				FC677B03277AE97300A1AEB3 /* SportTableViewCell.swift in Sources */,
 				FC677AD2277AE77300A1AEB3 /* SportsViewController.swift in Sources */,
 				FC677AD8277AE77300A1AEB3 /* Sports_Players.xcdatamodeld in Sources */,

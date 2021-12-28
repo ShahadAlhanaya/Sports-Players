@@ -8,10 +8,12 @@
 import UIKit
 import CoreData
 
-class SportsViewController: UITableViewController {
+class SportsViewController: UITableViewController, SportImageDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
 
     var sports = [Sport]()
     var managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var currentCellIndex: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class SportsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SportCell")! as! SportTableViewCell
         let sportItem = sports[indexPath.row]
         cell.sportLabel?.text = sportItem.name
+        cell.setImage(image: sportItem.image)
+        cell.indexPath = indexPath as NSIndexPath
+        cell.delegate = self
         return cell
     }
     
@@ -113,13 +118,33 @@ class SportsViewController: UITableViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowSportSegue" {
             let playersTableViewController = segue.destination as! PlayersTableViewController
-            playersTableViewController.sport = sender as! Sport
+            playersTableViewController.sport = (sender as! Sport)
         }
     }
+    
+    func pickImage(indexPath: NSIndexPath?) {
+        currentCellIndex = indexPath
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let userPickedImage = info[.originalImage] as? UIImage else { return }
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SportTableViewCell
+        if let index = currentCellIndex?.row {
+            cell.setImage(image: userPickedImage.pngData())
+            sports[index].image = userPickedImage.pngData()
+            saveSport()
+            fetchSports()
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }
-
